@@ -1,4 +1,4 @@
-define(["doh", "dojo/_base/declare", "../MeanColorModel", "..", "dijit/_WidgetBase"], 
+define(["../.", "dojo/_base/declare", "../MeanColorModel", "..", "dijit/_WidgetBase"],
 	function(doh, declare, MeanColorModel, color, _WidgetBase){
 	doh.register("tests.MeanColorModel", [
 		function test_Values(t){
