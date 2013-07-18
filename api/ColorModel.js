@@ -1,7 +1,7 @@
-define(["../../dojo/_base/declare"],
+define(["dojo/_base/declare"],
 	function(declare){
 	
-	return declare("dojox.color.api.ColorModel", null, {
+	return declare(null, {
 		// summary:
 		//		API for classes that implement a color model that returns a color from a data value.
 		

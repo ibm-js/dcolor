@@ -1,4 +1,4 @@
-define(["dojo/_base/lang", "dojo/_base/Color", "dojo/colors"], function(lang, Color, colors){
+define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
 	return {
 		fromCmy: function(/* Object|Array|int */cyan, /*int*/magenta, /*int*/yellow){
 			// summary:
@@ -13,7 +13,7 @@ define(["dojo/_base/lang", "dojo/_base/Color", "dojo/colors"], function(lang, Co
 			cyan/=100, magenta/=100, yellow/=100;
 
 			var r=1-cyan, g=1-magenta, b=1-yellow;
-			return new Color({ r:Math.round(r*255), g:Math.round(g*255), b:Math.round(b*255) });	//	dojox.color.Color
+			return new Color({ r:Math.round(r*255), g:Math.round(g*255), b:Math.round(b*255) });
 		},
 
 		fromCmyk: function(/* Object|Array|int */cyan, /*int*/magenta, /*int*/yellow, /*int*/black){
@@ -31,7 +31,7 @@ define(["dojo/_base/lang", "dojo/_base/Color", "dojo/colors"], function(lang, Co
 			r = 1-Math.min(1, cyan*(1-black)+black);
 			g = 1-Math.min(1, magenta*(1-black)+black);
 			b = 1-Math.min(1, yellow*(1-black)+black);
-			return new Color({ r:Math.round(r*255), g:Math.round(g*255), b:Math.round(b*255) });	//	dojox.color.Color
+			return new Color({ r:Math.round(r*255), g:Math.round(g*255), b:Math.round(b*255) });
 		},
 
 		fromHsl: function(/* Object|Array|int */hue, /* int */saturation, /* int */luminosity){
@@ -69,7 +69,7 @@ define(["dojo/_base/lang", "dojo/_base/Color", "dojo/colors"], function(lang, Co
 				g=(1-luminosity)*g+2*luminosity-1;
 				b=(1-luminosity)*b+2*luminosity-1;
 			}
-			return new Color({ r:Math.round(r*255), g:Math.round(g*255), b:Math.round(b*255) });	//	dojox.color.Color
+			return new Color({ r:Math.round(r*255), g:Math.round(g*255), b:Math.round(b*255) });
 		},
 
 		fromHsv: function(/* Object|Array|int */hue, /* int */saturation, /* int */value){
@@ -104,23 +104,21 @@ define(["dojo/_base/lang", "dojo/_base/Color", "dojo/colors"], function(lang, Co
 					case 5:{ r=value, g=p, b=q; break; }
 				}
 			}
-			return new Color({ r:Math.round(r*255), g:Math.round(g*255), b:Math.round(b*255) });	//	dojox.color.Color
-		}
-	}
+			return new Color({ r:Math.round(r*255), g:Math.round(g*255), b:Math.round(b*255) });
+		},
 
-	lang.extend(Color,{
-		toCmy: function(){
+		toCmy: function(color){
 			// summary:
 			//		Convert this Color to a CMY definition.
-			var cyan=1-(this.r/255), magenta=1-(this.g/255), yellow=1-(this.b/255);
+			var cyan=1-(color.r/255), magenta=1-(color.g/255), yellow=1-(color.b/255);
 			return { c:Math.round(cyan*100), m:Math.round(magenta*100), y:Math.round(yellow*100) };		//	Object
 		},
 
-		toCmyk: function(){
+		toCmyk: function(color){
 			// summary:
 			//		Convert this Color to a CMYK definition.
 			var cyan, magenta, yellow, black;
-			var r=this.r/255, g=this.g/255, b=this.b/255;
+			var r=color.r/255, g=color.g/255, b=color.b/255;
 			black = Math.min(1-r, 1-g, 1-b);
 			cyan = (1-r-black)/(1-black);
 			magenta = (1-g-black)/(1-black);
@@ -128,10 +126,10 @@ define(["dojo/_base/lang", "dojo/_base/Color", "dojo/colors"], function(lang, Co
 			return { c:Math.round(cyan*100), m:Math.round(magenta*100), y:Math.round(yellow*100), b:Math.round(black*100) };	//	Object
 		},
 
-		toHsl: function(){
+		toHsl: function(color){
 			// summary:
 			//		Convert this Color to an HSL definition.
-			var r=this.r/255, g=this.g/255, b=this.b/255;
+			var r=color.r/255, g=color.g/255, b=color.b/255;
 			var min = Math.min(r, b, g), max = Math.max(r, g, b);
 			var delta = max-min;
 			var h=0, s=0, l=(min+max)/2;
@@ -153,10 +151,10 @@ define(["dojo/_base/lang", "dojo/_base/Color", "dojo/colors"], function(lang, Co
 			return { h:h, s:Math.round(s*100), l:Math.round(l*100) };	//	Object
 		},
 
-		toHsv: function(){
+		toHsv: function(color){
 			// summary:
 			//		Convert this Color to an HSV definition.
-			var r=this.r/255, g=this.g/255, b=this.b/255;
+			var r=color.r/255, g=color.g/255, b=color.b/255;
 			var min = Math.min(r, b, g), max = Math.max(r, g, b);
 			var delta = max-min;
 			var h = null, s = (max==0)?0:(delta/max);
@@ -170,12 +168,9 @@ define(["dojo/_base/lang", "dojo/_base/Color", "dojo/colors"], function(lang, Co
 				}else{
 					h = 240 + 60*(r-g)/delta;
 				}
-
 				if(h<0){ h+=360; }
 			}
 			return { h:h, s:Math.round(s*100), v:Math.round(max*100) };	//	Object
 		}
-	});
-
-	return cx;
+	}
 });

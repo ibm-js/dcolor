@@ -1,7 +1,7 @@
-define(["../dojo/_base/array", "dojo/_base/declare", "./NeutralColorModel"],
-	function(arr, declare, NeutralColorModel){
+define(["dojo/_base/declare", "./NeutralColorModel"],
+	function(declare, NeutralColorModel){
 	
-	return declare("dojox.color.MeanColorModel", NeutralColorModel, {
+	return declare(NeutralColorModel, {
 		// summary:
 		//		A color model that returns a color from a data value
 		//		using an interpolation between two extremum colors around the mean value.
