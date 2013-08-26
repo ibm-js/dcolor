@@ -56,7 +56,7 @@ define(["dojo/_base/declare", "./utils"],
 			//		The data value. 			
 			var completion = this.getNormalizedValue(value);
 			var hslFrom = utils.toHsl(this._startColor);
-			var hslTo = util.toHsl(this._endColor);
+			var hslTo = utils.toHsl(this._endColor);
 			var h = this._getInterpoledValue(hslFrom.h, hslTo.h, completion);
 			var s = this._getInterpoledValue(hslFrom.s, hslTo.s, completion);
 			var l = this._getInterpoledValue(hslFrom.l, hslTo.l, completion);
