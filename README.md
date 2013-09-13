@@ -27,14 +27,13 @@ This project requires the following other projects to run:
 
 ## Installation
 
-
 * Manual installation of by dropping dcolor as a sibling of the top level Dojo modules:
  * dojo
  * dcolor
 
  To install the latest master, go to the root Dojo installation directory and clone dcolor from github
 
- git clone git://github.com/cjolif/dcolor.git
+ git clone git://github.com/ibm-dojo/dcolor.git
 
 ## Documentation
 
