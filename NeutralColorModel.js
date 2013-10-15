@@ -1,7 +1,7 @@
-define(["dojo/_base/array", "dojo/_base/declare", "./SimpleColorModel"],
-	function(arr, declare, SimpleColorModel){
+define(["dcl/dcl", "./SimpleColorModel"],
+	function(dcl, SimpleColorModel){
 	
-	return declare(SimpleColorModel, {
+	return dcl(SimpleColorModel, {
 		// summary:
 		//		Base class for color models that return a color from a data value
 		//		using an interpolation between two extremum colors around a neutral value.
@@ -29,7 +29,7 @@ define(["dojo/_base/array", "dojo/_base/declare", "./SimpleColorModel"],
 			var sum = 0;
 			var min = 100000000; 
 			var max = -min; 
-			arr.forEach(items, function(item){
+			items.forEach(function(item){
 				var value = colorFunc(item);
 				min = Math.min(min, value);
 				max = Math.max(max, value);

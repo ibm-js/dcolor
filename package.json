@@ -1,0 +1,13 @@
+{
+	"name": "dcolor",
+	"version": "0.1.0-dev",
+	"licenses": [
+		{
+			"type": "BSD",
+			"url": "https://github.com/ibm-dojo/dcolor/blob/master/LICENSE"
+		}
+	],
+	"dependencies": {
+		"dojo": ">=1.9.1",
+		"dcl": "1.1"
+}

@@ -1,7 +1,7 @@
-define(["dojo/_base/declare"],
-	function(declare){
+define(["dcl/dcl"],
+	function(dcl){
 	
-	return declare(null, {
+	return dcl(null, {
 		// summary:
 		//		API for classes that implement a color model that returns a color from a data value.
 		

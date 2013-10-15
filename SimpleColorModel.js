@@ -1,7 +1,7 @@
-define(["dojo/_base/declare", "./utils"],
-	function(declare, utils){
+define(["dcl/dcl", "./utils"],
+	function(dcl, utils){
 	
-	return declare(null, {
+	return dcl(null, {
 		// summary:
 		//		Base class for color models that return a color from a data value
 		//		using an interpolation between two extremum colors.
