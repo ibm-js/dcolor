@@ -1,6 +1,6 @@
 # dcolor
 
-This project provides AMD color APIs useful for AMD-based and/or Dojo-based applications.
+This project provides color APIs.
 
 ## Status
 
@@ -29,9 +29,10 @@ This project requires the following other projects to run:
 
 * Manual installation of by dropping dcolor as a sibling of the top level Dojo modules:
  * dojo
+ * dcl
  * dcolor
 
- To install the latest master, go to the root Dojo installation directory and clone dcolor from github
+ To install the latest master, go to the root installation directory and clone dcolor from github
 
  git clone git://github.com/ibm-dojo/dcolor.git
 
