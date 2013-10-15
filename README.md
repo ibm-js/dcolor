@@ -17,7 +17,7 @@ Migration steps from dojox/color to dcolor:
 
 ## Licensing
 
-This project is distributed by the Dojo Foundation and licensed under the ["New" BSD License](https://github.com/dojo/dojo/blob/master/LICENSE#L13-L41).
+This project is licensed under the ["New" BSD License](https://github.com/dojo/dojo/blob/master/LICENSE#L13-L41).
 All contributions require a [Dojo Foundation CLA](http://dojofoundation.org/about/claForm).
 
 ## Dependencies
@@ -27,7 +27,7 @@ This project requires the following other projects to run:
 
 ## Installation
 
-* Manual installation of by dropping dcolor as a sibling of the top level Dojo modules:
+* Manual installation of by dropping dcolor as a sibling of these packages:
  * dojo
  * dcl
  * dcolor
