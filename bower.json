@@ -4,5 +4,12 @@
 	"dependencies": {
 		"dojo": ">=1.9.1",
 		"dcl": "1.1"
-	}
+	},
+	"ignore": [
+		".jshintrc",
+		".gitattributes",
+		".traviscy"
+		"tests",
+		"CONTRIBUTING.md"
+	]
 }
