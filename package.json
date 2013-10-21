@@ -10,4 +10,5 @@
 	"dependencies": {
 		"dojo": ">=1.9.1",
 		"dcl": "1.1"
+	}
 }
