@@ -1,13 +1,11 @@
-define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
+define(["dojo/_base/Color"], function(Color){
 	return {
-		fromCmy: function(/* Object|Array|int */cyan, /*int*/magenta, /*int*/yellow){
+		fromCmy: function(/* Object|int */cyan, /*int?*/magenta, /*int?*/yellow){
 			// summary:
-			//		Create a dojox.color.Color from a CMY defined color.
+			//		Create a Color from a CMY defined color.
 			//		All colors should be expressed as 0-100 (percentage)
 
-			if(lang.isArray(cyan)){
-				magenta=cyan[1], yellow=cyan[2], cyan=cyan[0];
-			} else if(lang.isObject(cyan)){
+			if(arguments.length == 1){
 				magenta=cyan.m, yellow=cyan.y, cyan=cyan.c;
 			}
 			cyan/=100, magenta/=100, yellow/=100;
@@ -16,14 +14,12 @@ define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
 			return new Color({ r:Math.round(r*255), g:Math.round(g*255), b:Math.round(b*255) });
 		},
 
-		fromCmyk: function(/* Object|Array|int */cyan, /*int*/magenta, /*int*/yellow, /*int*/black){
+		fromCmyk: function(/* Object|int */cyan, /*int?*/magenta, /*int?*/yellow, /*int?*/black){
 			// summary:
-			//		Create a dojox.color.Color from a CMYK defined color.
+			//		Create a Color from a CMYK defined color.
 			//		All colors should be expressed as 0-100 (percentage)
 
-			if(lang.isArray(cyan)){
-				magenta=cyan[1], yellow=cyan[2], black=cyan[3], cyan=cyan[0];
-			} else if(lang.isObject(cyan)){
+			if(arguments.length == 1){
 				magenta=cyan.m, yellow=cyan.y, black=cyan.b, cyan=cyan.c;
 			}
 			cyan/=100, magenta/=100, yellow/=100, black/=100;
@@ -34,14 +30,12 @@ define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
 			return new Color({ r:Math.round(r*255), g:Math.round(g*255), b:Math.round(b*255) });
 		},
 
-		fromHsl: function(/* Object|Array|int */hue, /* int */saturation, /* int */luminosity){
+		fromHsl: function(/* Object|int */hue, /* int? */saturation, /* int? */luminosity){
 			// summary:
-			//		Create a dojox.color.Color from an HSL defined color.
+			//		Create a Color from an HSL defined color.
 			//		hue from 0-359 (degrees), saturation and luminosity 0-100.
 
-			if(lang.isArray(hue)){
-				saturation=hue[1], luminosity=hue[2], hue=hue[0];
-			} else if(lang.isObject(hue)){
+			if(arguments.length == 1){
 				saturation=hue.s, luminosity=hue.l, hue=hue.h;
 			}
 			saturation/=100;
@@ -72,14 +66,12 @@ define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
 			return new Color({ r:Math.round(r*255), g:Math.round(g*255), b:Math.round(b*255) });
 		},
 
-		fromHsv: function(/* Object|Array|int */hue, /* int */saturation, /* int */value){
+		fromHsv: function(/* Object|int */hue, /* int? */saturation, /* int? */value){
 			// summary:
-			//		Create a dojox.color.Color from an HSV defined color.
+			//		Create a Color from an HSV defined color.
 			//		hue from 0-359 (degrees), saturation and value 0-100.
 
-			if(lang.isArray(hue)){
-				saturation=hue[1], value=hue[2], hue=hue[0];
-			} else if (lang.isObject(hue)){
+			if (arguments.length == 1){
 				saturation=hue.s, value=hue.v, hue=hue.h;
 			}
 
