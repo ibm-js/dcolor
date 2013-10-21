@@ -8,7 +8,7 @@
 	"ignore": [
 		".jshintrc",
 		".gitattributes",
-		".traviscy"
+		".travis.yml",
 		"tests",
 		"CONTRIBUTING.md"
 	]
