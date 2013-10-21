@@ -1,4 +1,4 @@
-# dcolor
+# dcolor [![Build Status](https://travis-ci.org/ibm-dojo/dcolor.png?branch=master)](https://travis-ci.org/ibm-dojo/dcolor)
 
 This project provides color APIs.
 
