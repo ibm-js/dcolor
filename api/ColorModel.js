@@ -1,30 +1,29 @@
-define(["dcl/dcl"],
-	function(dcl){
-	
+define(["dcl/dcl"], function (dcl) {
+
 	return dcl(null, {
 		// summary:
 		//		API for classes that implement a color model that returns a color from a data value.
-		
-		constructor: function(){
+
+		constructor: function () {
 			// summary:
 			//		Constructor.
 		},
-	
-		initialize: function(items, colorFunc){
+
+		initialize: function (/*items, colorFunc*/) {
 			// summary:
 			//		Optionally initialize the color model from a list of data items and using a function
 			//		that returns the value used to compute the color for a given item.
 			// items: Object[]
-			//		The data items. 
+			//		The data items.
 			// colorFunc: Function
-			//		The function that returns the value used to compute the color for particular data item.			
+			//		The function that returns the value used to compute the color for particular data item.
 		},
-	
-		getColor: function(value){
+
+		getColor: function (/*value*/) {
 			// summary:
 			//		return the color for a given data value.
 			// value: Number
-			//		The data value. 			
+			//		The data value.
 		}
 	});
 });
