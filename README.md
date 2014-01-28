@@ -1,4 +1,4 @@
-# dcolor [![Build Status](https://travis-ci.org/ibm-dojo/dcolor.png?branch=master)](https://travis-ci.org/ibm-dojo/dcolor)
+# dcolor [![Build Status](https://travis-ci.org/ibm-js/dcolor.png?branch=master)](https://travis-ci.org/ibm-js/dcolor)
 
 This project provides color APIs.
 
@@ -8,7 +8,7 @@ No official release yet.
 
 ## Migration
 
-This is a subset of the former dojox/color project.
+This is a subset of the former dojox/color project with the addition of the dojo/_base/Color object.
 
 Migration steps from dojox/color to dcolor:
 
@@ -17,7 +17,7 @@ Migration steps from dojox/color to dcolor:
 
 ## Licensing
 
-This project is distributed by the Dojo Foundation and licensed under the ["New" BSD License](https://github.com/ibm-dojo/dcolor/blob/master/LICENSE).
+This project is distributed by the Dojo Foundation and licensed under the ["New" BSD License](https://github.com/ibm-js/dcolor/blob/master/LICENSE).
 All contributions require a [Dojo Foundation CLA](http://dojofoundation.org/about/claForm).
 
 ## Dependencies
@@ -28,13 +28,12 @@ This project requires the following other projects to run:
 ## Installation
 
 * Manual installation of by dropping dcolor as a sibling of these packages:
- * dojo
  * dcl
  * dcolor
 
  To install the latest master, go to the root installation directory and clone dcolor from github
 
- git clone git://github.com/ibm-dojo/dcolor.git
+ git clone git://github.com/ibm-js/dcolor.git
 
 * Bower installation:
 

@@ -1,5 +1,5 @@
-define(["dcl/dcl", "./utils"],
-	function (dcl, utils) {
+define(["dcl/dcl", "./Color"],
+	function (dcl, Color) {
 	
 	return dcl(null, {
 		// summary:
@@ -26,14 +26,13 @@ define(["dcl/dcl", "./utils"],
 				// use only the hue, and compute
 				// the start/end colors by playing
 				// with the luminance...
-				var hsl = utils.toHsl(startColor);
-				hsl.s = 100;
-				hsl.l = 85;
-				this._startColor = utils.fromHsl(hsl.h, hsl.s, hsl.l);
-				this._startColor.a = startColor.a;
-				hsl.l = 15;
-				this._endColor = utils.fromHsl(hsl.h, hsl.s, hsl.l);
-				this._endColor.a = startColor.a;
+				var hsl = startColor.toHslaArray();
+				hsl[1] = 100;
+				hsl[2] = 85;
+				hsl[3] = startColor.a;
+				this._startColor = Color.fromHslaArray(hsl);
+				hsl[2] = 15;
+				this._endColor = Color.fromHslaArray(hsl);
 			}
 		},
 		
@@ -55,15 +54,13 @@ define(["dcl/dcl", "./utils"],
 			// value: Number
 			//		The data value.
 			var completion = this.getNormalizedValue(value);
-			var hslFrom = utils.toHsl(this._startColor);
-			var hslTo = utils.toHsl(this._endColor);
-			var h = this._getInterpoledValue(hslFrom.h, hslTo.h, completion);
-			var s = this._getInterpoledValue(hslFrom.s, hslTo.s, completion);
-			var l = this._getInterpoledValue(hslFrom.l, hslTo.l, completion);
+			var hslFrom = this._startColor.toHslaArray();
+			var hslTo = this._endColor.toHslaArray();
+			var h = this._getInterpoledValue(hslFrom[0], hslTo[0], completion);
+			var s = this._getInterpoledValue(hslFrom[1], hslTo[1], completion);
+			var l = this._getInterpoledValue(hslFrom[2], hslTo[2], completion);
 			var a = this._getInterpoledValue(this._startColor.a, this._endColor.a, completion);
-			var c = utils.fromHsl(h, s, l);
-			c.a = a;
-			return c;
+			return Color.fromHslaArray([h, s, l, a]);
 		}
 	});
 });
