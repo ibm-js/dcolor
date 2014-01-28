@@ -7,9 +7,9 @@ define(["dcl/dcl", "./NeutralColorModel"],
 		//		using an interpolation between two extremum colors around the mean value.
 			
 		constructor: function (/*startColor, endColor*/) {
-			// startColor: dojo/_base/Color
+			// startColor: dcolor/Color
 			//		The start color.
-			// endColor: dojo/_base/Color?
+			// endColor: dcolor/Color?
 			//		The end color.
 		},
 			

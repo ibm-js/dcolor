@@ -14,9 +14,9 @@ define(["dcl/dcl", "./Color"],
 			//		Construct a color model interpolating between start and end color.
 			//		If only start color is provided use it to compute reasonable start and end
 			//		colors from it.
-			// startColor: dojo/_base/Color
+			// startColor: dcolor/Color
 			//		The start color. 
-			// endColor: dojo/_base/Color?
+			// endColor: dcolor/Color?
 			//		The end color.
 			if (endColor !== undefined) {
 				this._startColor = startColor;

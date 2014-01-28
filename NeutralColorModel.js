@@ -11,9 +11,9 @@ define(["dcl/dcl", "./SimpleColorModel"],
 		_e: 0,
 	
 		constructor: function (/*startColor, endColor*/) {
-			// startColor: dojo/_base/Color
+			// startColor: dcolor/Color
 			//		The start color.
-			// endColor: dojo/_base/Color?
+			// endColor: dcolor/Color?
 			//		The end color.
 		},
 	
