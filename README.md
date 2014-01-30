@@ -17,7 +17,7 @@ Migration steps from dojox/color to dcolor:
 
 ## Licensing
 
-This project is distributed by the Dojo Foundation and licensed under the ["New" BSD License](https://github.com/ibm-js/dcolor/blob/master/LICENSE).
+This project is distributed by the Dojo Foundation and licensed under the ["New" BSD License](./LICENSE).
 All contributions require a [Dojo Foundation CLA](http://dojofoundation.org/about/claForm).
 
 ## Dependencies
@@ -27,17 +27,18 @@ This project requires the following other projects to run:
 
 ## Installation
 
-* Manual installation of by dropping dcolor as a sibling of these packages:
- * dcl
- * dcolor
+_Bower_ release installation:
 
- To install the latest master, go to the root installation directory and clone dcolor from github
+    $ bower install dcolor
 
- git clone git://github.com/ibm-js/dcolor.git
+_Manual_ master installation: go to the root installation directory and clone dcolor from github:
 
-* Bower installation:
+    $ git clone git://github.com/ibm-js/dcolor.git
 
- * bower install dcolor
+Then install dependencies with bower (or manually from github if you prefer to):
+
+	$ cd dcolor
+	$ bower install
 
 ## Documentation
 
