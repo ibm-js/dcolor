@@ -2,5 +2,6 @@
 define([
 	"./ColorModel",
 	"./utils",
-	"./Color"
+	"./Color",
+	"./ExtendedColor"
 ]);

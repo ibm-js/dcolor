@@ -326,7 +326,7 @@ define(["dcl/dcl"], function (dcl) {
 		// returns:
 		//		A dojo.Color object. If obj is passed, it will be the return value.
 		var a = Color.named[str];
-		return a && (Color.fromHex(a, obj) ||  Color.fromRgbaArray(a, obj)) ||
+		return a && ((typeof a === "string" && Color.fromHex(a, obj)) ||  Color.fromRgbaArray(a, obj)) ||
 			Color.fromRgbaString(str, obj) || Color.fromHslaString(str, obj) || Color.fromHex(str, obj);
 	};
 
