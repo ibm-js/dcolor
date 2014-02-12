@@ -9,4 +9,4 @@ install:
    - npm install
 script:
   - jshint .
-  - node node_modules/intern/runner.js config=tests/intern
+  - node node_modules/intern/runner.js config=tests/sauce
