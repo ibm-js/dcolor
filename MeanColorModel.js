@@ -23,7 +23,7 @@ define(["dcl/dcl", "./NeutralColorModel"],
 			// sum: Number
 			//		The sum of all values.
 			// values: Number[]
-			//		The sorted array of values used to compute colors.			
+			//		The sorted array of values used to compute colors.
 			var median = min;
 			if (values.length !== 0) {
 				if (values.length < 3) {

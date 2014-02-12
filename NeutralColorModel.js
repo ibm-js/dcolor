@@ -67,7 +67,9 @@ define(["dcl/dcl", "./SimpleColorModel"],
 			//		This implementation uses an power function to map neutral value to 0.5
 			//		and distribute other values around it.
 			// value: Number
-			//		The data value			
+			//		The data value
+			// returns: dcolor/Color
+			//		The corresponding color
 			if (this._e < 0) {
 				return 0;
 			}

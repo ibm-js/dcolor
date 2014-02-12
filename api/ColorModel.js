@@ -24,6 +24,8 @@ define(["dcl/dcl"], function (dcl) {
 			//		return the color for a given data value.
 			// value: Number
 			//		The data value.
+			// returns: dcolor/Color
+			//		The corresponding color
 		}
 	});
 });

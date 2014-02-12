@@ -53,6 +53,8 @@ define(["dcl/dcl", "./Color"],
 			//		return the color for a given data value.
 			// value: Number
 			//		The data value.
+			// returns: dcolor/Color
+			//		The corresponding color
 			var completion = this.getNormalizedValue(value);
 			var hslFrom = this._startColor.toHslaArray();
 			var hslTo = this._endColor.toHslaArray();
