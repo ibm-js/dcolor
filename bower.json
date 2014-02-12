@@ -4,6 +4,9 @@
 	"dependencies": {
 		"dcl": "1.1"
 	},
+	"devDependencies": {
+		"requirejs": "2.1.x"
+	},
 	"ignore": [
 		".jshintrc",
 		".gitattributes",
