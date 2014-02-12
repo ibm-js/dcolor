@@ -65,6 +65,11 @@ define([
 			verifyColor(green.toHslaString(), [0, 255, 0, 1]);
 			verifyColor(blue.toHslaString(), [0, 0, 255, 1]);
 			verifyColor(yellow.toHslaString(), [255, 255, 0, 1]);
+			assert.deepEqual(grey.toHslaArray(),  [0, 0, 50, 1]);
+			assert.deepEqual(red.toHslaArray(), [0, 100, 50, 1]);
+			assert.deepEqual(green.toHslaArray(), [120, 100, 50, 1]);
+			assert.deepEqual(blue.toHslaArray(), [240, 100, 50, 1]);
+			assert.deepEqual(yellow.toHslaArray(), [60, 100, 50, 1]);
 		}
 	});
 });
