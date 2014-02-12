@@ -42,14 +42,9 @@ define({
 		{ browserName: "internet explorer", version: "9", platform: "Windows 7" },
 		{ browserName: "firefox", version: "25", platform: [ /*"OS X 10.6", "Linux", */ "Windows 7" ] },
 		{ browserName: "chrome", version: "", platform: [ /*"OS X 10.6", "Linux", */ "Windows 7" ] },
-
-		// Mobile
 	//	{ browserName: "android", platform: "Android" },
-		{ browserName: "iphone",
-			platform: "OS X 10.8",
-			version: "6.1",
-			"device-orientation": "portrait",
-			"selenium-version": "" }
+		{ browserName: "iphone", platform: "OS X 10.8",	version: "6.1",
+			"device-orientation": "portrait", "selenium-version": "" }
 	],
 
 	// Maximum number of simultaneous integration tests that should be executed on the remote WebDriver service
@@ -66,7 +61,7 @@ define({
 		port: 4444
 	},
 
-	suites: [ "delite/tests/all" ],
+	suites: [ "dcolor/tests/all" ],
 
 	// A regular expression matching URLs to files that should not be included in code coverage analysis
 	excludeInstrumentation: /^(requirejs|dcl|dojo|platform|\/tests|.*\/themes)/

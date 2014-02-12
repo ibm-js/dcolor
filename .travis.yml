@@ -6,7 +6,10 @@ language: node_js
 node_js: 0.10
 install:
    - npm -g install jshint
+   - npm -g install bower
    - npm install
+   - bower install
 script:
   - jshint .
-  - node node_modules/intern/runner.js config=tests/sauce
+  - cd node_modules/intern
+  - node runner.js config=../../../../dcolor/tests/sauce
