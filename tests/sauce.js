@@ -53,7 +53,7 @@ define(["./intern"], function (intern) {
 		},
 
 		// A regular expression matching URLs to files that should not be included in code coverage analysis
-		excludeInstrumentation: /^(requirejs|dcl|dojo|platform|\/tests|.*\/themes)/
+		excludeInstrumentation: /^(requirejs|dcl|tests\/)/
 	};
 
 	for (var key in intern) {
