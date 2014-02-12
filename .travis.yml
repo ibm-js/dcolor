@@ -1,4 +1,10 @@
+env:
+  global:
+    - secure: "CqWcl5MJemlAsZ1+jKUlqE40s5EYGy9UBUndm3Jqh4v5TijWly0DqxOr3OvS4PzbFtcjeXaOdi03CgzlSjzTo+WnWYr5Ty6t1fcSi+mUsfJAYa9PxJn1rnKP8x4rVf9dNzVd/rxuhPXfJ853JaUNz4pxV1H6p7t4G25/DEsaJgw="
+    - secure: "J6XO32fDOahTKcLmvvVhUaHvGHUpNthoTQFo00mPraDSB9SAL+0puEwx29/K6+yICm3J5xCbp6sPghrRe47yvGrbrsv8SZJDfa5POpfnV8MyMHbq8T0cPO4uFiTR6fAmEtqBuYeP8GA13bkHZ6APVjMPbADiqxvGFH7Qlj4pBTw="
 language: node_js
-node_js: "0.10"
-install: "npm -g install jshint"
-script: "jshint ."
+node_js: 0.10
+install: npm -g install jshint
+script:
+  - jshint .
+  - node node_modules/intern/runner.js config=tests/intern
