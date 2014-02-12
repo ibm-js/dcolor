@@ -14,7 +14,7 @@ define(["./Color"], function (Color) {
 					t[x] = Math.round(t[x]);
 				}
 			});
-			return t.sanitize();	// dojo.Color
+			return t.sanitize();	// dcolor/Color
 		}
 	};
 });
