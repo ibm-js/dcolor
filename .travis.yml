@@ -4,7 +4,9 @@ env:
     - secure: "J6XO32fDOahTKcLmvvVhUaHvGHUpNthoTQFo00mPraDSB9SAL+0puEwx29/K6+yICm3J5xCbp6sPghrRe47yvGrbrsv8SZJDfa5POpfnV8MyMHbq8T0cPO4uFiTR6fAmEtqBuYeP8GA13bkHZ6APVjMPbADiqxvGFH7Qlj4pBTw="
 language: node_js
 node_js: 0.10
-install: npm -g install jshint
+install:
+   - npm -g install jshint
+   - npm install
 script:
   - jshint .
   - node node_modules/intern/runner.js config=tests/intern
