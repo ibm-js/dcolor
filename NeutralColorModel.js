@@ -1,6 +1,8 @@
-define(["dcl/dcl", "./SimpleColorModel"],
-	function (dcl, SimpleColorModel) {
-	
+define(["dcl/dcl", "./SimpleColorModel"], function (dcl, SimpleColorModel) {
+	function defaultColorFunc(item) {
+		return item;
+	}
+
 	return dcl(SimpleColorModel, {
 		// summary:
 		//		Base class for color models that return a color from a data value
@@ -23,12 +25,16 @@ define(["dcl/dcl", "./SimpleColorModel"],
 			//		that returns the value used to compute the color for a given item.
 			// items: Object[]
 			//		The data items. 
-			// colorFunc: Function
-			//		The function that returns the value used to compute the color for particular data item.
+			// colorFunc: Function?
+			//		If the data item is not a Number, a function that returns the value used to compute the color
+			//		for particular data item.
 			var values = [];
 			var sum = 0;
 			var min = 100000000;
 			var max = -min;
+			if (!colorFunc) {
+				colorFunc = defaultColorFunc;
+			}
 			items.forEach(function (item) {
 				var value = colorFunc(item);
 				min = Math.min(min, value);

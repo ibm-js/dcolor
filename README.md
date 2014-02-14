@@ -8,12 +8,16 @@ No official release yet.
 
 ## Migration
 
-This is a subset of the former dojox/color project with the addition of the dojo/_base/Color object.
+This is a subset of the former dojox/color project (the ColorModel part) with the addition of the dojo/_base/Color &
+dojo/colors modules.
 
 Migration steps from dojox/color to dcolor:
 
-* replace any use of "dojox/color" AMD module path by "dcolor"
-* ...
+* replace any use of "dojo/_base/Color.blendColors" by "dcolor/utils.blendColors"
+* replace any use of "dojo/_base/Color.toString" by "dcolor/Color.toRgbaString(true)"
+* replace any other use of "dojo/_base/Color" AMD module by "dcolor/Color"
+* replace any use of "dojo/colors" AMD module by "dcolor/ExtendedColor"
+* "dojox/color" APIs outside of ColorModel have not been ported and you will need to either port them or find replacements.
 
 ## Licensing
 
@@ -42,9 +46,5 @@ Then install dependencies with bower (or manually from github if you prefer to):
 
 ## Documentation
 
-
-## Credits
-
-* Christophe Jolif (IBM CCLA)
-* Tom Trenka (CLA)
+Documentation is available [here](./docs/index)
 
