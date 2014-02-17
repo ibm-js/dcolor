@@ -9,7 +9,7 @@ The `dcolor/Color` module provides a unified way to store color components and c
 color string representations and the `Color` object. It holds the components in rgba form. `dcolor/Color`
 objects can often be used directly as a value to the various color properties of the consuming projects.
 
-Before proceeding checkout [setup page](setup) on how to setup a project using dcolor. This will be required to leverage the samples from this page.
+Before proceeding checkout [setup page](setup.md) on how to setup a project using dcolor. This will be required to leverage the samples from this page.
 
 ##### Table of Contents
 [Instantiation](#instantiation)
@@ -37,7 +37,7 @@ require(["dcolor/Color"], function (Color) {
 ```
 
 The recognized "named" colors (like "red") is the 16 colors list from [CSS3 Basic color keywords list](http://www.w3.org/TR/css3-color/#html4)
-plus the "transparent" keyword. For more keyword support see [`dcolor/ExtendedColor`](ExtendedColor) for details.
+plus the "transparent" keyword. For more keyword support see [`dcolor/ExtendedColor`](ExtendedColor.md) for details.
 
 Instead of using the function constructor you can specifically build or update an existing `Color` object using "from" functions:
 

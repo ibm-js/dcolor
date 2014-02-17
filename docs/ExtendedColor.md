@@ -29,7 +29,7 @@ require(["dcolor/Color"], function (Color) {
 ```
 
 The recognized "named" colors (like "azure") is the 16 colors list from [CSS3 Basic color keywords list](http://www.w3.org/TR/css3-color/#html4)
-as well as the [CSS3 Extended color keywords list](http://www.w3.org/TR/css3-color/#svg-color] also known as SVG color plus the "transparent" keyword.
+as well as the [CSS3 Extended color keywords list](http://www.w3.org/TR/css3-color/#svg-color) also known as SVG color plus the "transparent" keyword.
 
 Checkout [`dcolor/Color`](Color) documentation for more details on using `ExtendedColor` object.
 

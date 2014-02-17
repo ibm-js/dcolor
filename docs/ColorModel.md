@@ -8,7 +8,7 @@ title: dcolor/api/ColorModel
 `dcolor` provides a set of color model modules that you can either use directly or extend to build your own models. The
 purpose of a color model is to map values to colors allowing one to colorize data output based on the value of the data.
 
-Before proceeding checkout [setup page](setup) on how to setup a project using dcolor. This will be required to leverage the samples from this page.
+Before proceeding checkout [setup page](setup.md) on how to setup a project using dcolor. This will be required to leverage the samples from this page.
 
 ##### Table of Contents
 [SimpleColorModel](#simple)
