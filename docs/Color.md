@@ -12,8 +12,8 @@ objects can often be used directly as a value to the various color properties of
 Before proceeding checkout [setup page](setup.md) on how to setup a project using dcolor. This will be required to leverage the samples from this page.
 
 ##### Table of Contents
-[Instantiation](#instantiation)
-[Conversion](#conversion)
+[Instantiation](#instantiation)  
+[Conversion](#conversion)  
 
 <a name="instantiation"></a>
 ## Instantiation
