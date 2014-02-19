@@ -7,7 +7,7 @@ title: dcolor/utils
 
 `dcolor/utils` provides utilities to deal with `dcolor/Color` instances.
 
-Before proceeding checkout [setup page](setup.md) on how to setup a project using dcolor. This will be required to leverage the samples from this page.
+Before proceeding checkout [setup page](setup.html) on how to setup a project using dcolor. This will be required to leverage the samples from this page.
 
 ##### Table of Contents
 [Blend Colors](#blend)
