@@ -1,6 +1,6 @@
 markdown: redcarpet
 
-baseurl: /RepoName
+baseurl: /dcolor
 
 pygments: true
 
