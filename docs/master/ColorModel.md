@@ -11,9 +11,9 @@ purpose of a color model is to map values to colors allowing one to colorize dat
 Before proceeding checkout [setup page](setup.html) on how to setup a project using dcolor. This will be required to leverage the samples from this page.
 
 ##### Table of Contents
-[SimpleColorModel](#simple)
-[NeutralColorModel](#neutral)
-[MeanColorModel](#mean)
+[SimpleColorModel](#simple)  
+[NeutralColorModel](#neutral)  
+[MeanColorModel](#mean)  
 
 <a name="simple"></a>
 ## SimpleColorModel
