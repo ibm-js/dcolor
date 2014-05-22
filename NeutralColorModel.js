@@ -66,7 +66,7 @@ define(["dcl/dcl", "./SimpleColorModel"], function (dcl, SimpleColorModel) {
 		 * @param {number} max The maximum value.
 		 * @param {number} sum The sum of all values.
 		 * @param {number[]} values The sorted array of values used to compute colors.
- 		 * @returns {number} the neutral value.
+		 * @returns {number} the neutral value.
 		 */
 		computeNeutral: function (/*jshint unused: vars*/min, max, sum, values) {
 		},
