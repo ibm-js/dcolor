@@ -1,29 +1,28 @@
+/** @module dcolor/MeanColorModel */
 define(["dcl/dcl", "./NeutralColorModel"],
 	function (dcl, NeutralColorModel) {
-	
-	return dcl(NeutralColorModel, {
-		// summary:
-		//		A color model that returns a color from a data value
-		//		using an interpolation between two extremum colors around the mean value.
-			
-		constructor: function (/*startColor, endColor*/) {
-			// startColor: dcolor/Color
-			//		The start color.
-			// endColor: dcolor/Color?
-			//		The end color.
-		},
-			
+
+	/**
+	 * A color model that returns a color from a data value
+	 * using an interpolation between two extremum colors around the mean value.
+	 * @class module:dcolor/MeanColorModel
+	 * @augments {module:dcolor/NeutralColorModel}
+	 */
+	return dcl(NeutralColorModel, /** @lends module:dcolor/MeanColorModel# */ {
+
+		/*
+		 * @borrows module:dcolor/SimpleColorModel.constructor as constructor
+		 */
+		
+		/**
+		 * Returns the neutral value in this case the mean value of the data values.
+		 * @param {number} min The minimal value.
+		 * @param {number} max The maximum value.
+		 * @param {number} sum The sum of all values.
+		 * @param {number[]} values The sorted array of values used to compute colors.
+		 * @returns {number} the mean value.
+		 */
 		computeNeutral: function (min, max, sum, values) {
-			// summary:
-			//		Return the neutral value in this case the mean value of the data values.
-			// min: Number
-			//		The minimal value.
-			// max: Number
-			//		The maximum value.
-			// sum: Number
-			//		The sum of all values.
-			// values: Number[]
-			//		The sorted array of values used to compute colors.
 			var median = min;
 			if (values.length !== 0) {
 				if (values.length < 3) {

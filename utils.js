@@ -1,12 +1,23 @@
+/** @module dcolor/utils */
 define(["./Color"], function (Color) {
 	return {
-		// summary:
-		//		Somme color utilities.
+		/**
+		 * Some color utilities.
+		 * @class module:dcolor/SimpleColorModel
+		 */
 
-		blendColors: function (/*dcolor/Color*/ start, /*dcolor/Color*/ end, /*Number*/ weight, /*dcolor/Color?*/ obj) {
+		/**
+		 * Blends colors end and start with weight from 0 to 1, 0.5 being a 50/50 blend,
+		 * can reuse a previously allocated dcolor/Color object for the result
+		 * @param {dcolor/Color} start 
+		 * @param {dcolor/Color} end
+		 * @param {number} weight blend weight.
+		 * @param {dcolor/Color} [obj] optional color instance to re-use and return.
+		 * @returns {dcolor/Color}
+		 */
+		blendColors: function (start, end, weight, obj) {
 			// summary:
-			//		Blend colors end and start with weight from 0 to 1, 0.5 being a 50/50 blend,
-			//		can reuse a previously allocated dcolor/Color object for the result
+			//		
 			var t = obj || new Color();
 			["r", "g", "b", "a"].forEach(function (x) {
 				t[x] = start[x] + (end[x] - start[x]) * weight;

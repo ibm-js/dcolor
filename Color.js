@@ -1,8 +1,6 @@
+/** @module dcolor/Color */
 define(["dcl/dcl"], function (dcl) {
 	function confine(c, low, high) {
-		// summary:
-		//		sanitize a color component by making sure it is a number,
-		//		and clamping it to valid values
 		c = Number(c);
 		return isNaN(c) ? high : c < low ? low : c > high ? high : c;	// Number
 	}
@@ -66,16 +64,21 @@ define(["dcl/dcl"], function (dcl) {
 		return [ h, Math.round(s * 100), Math.round(l * 100), a ];
 	}
 
+	/**
+	 * @summary
+	 * Object that internally holds color components as r, g, b and a and provides method for converting to various
+	 * color component schemes.
+	 * @description
+	 * Constructor takes a named string, hex string, array of rgb or rgba values,
+	 * an object with r, g, b, and a properties, or another `dcolor/Color` object
+	 * and creates a new Color instance to work from.
+	 * @param {number[]|string|Object} color color components
+	 * @constructor module:dcolor/Color
+	 * @example
+	 * var c = new Color([0, 0, 0]);
+	 * var hex = c.toHex(); // #000000
+	 */
 	var Color = function (/*Array|String|Object*/ color) {
-		// summary:
-		//		Takes a named string, hex string, array of rgb or rgba values,
-		//		an object with r, g, b, and a properties, or another `dcolor/Color` object
-		//		and creates a new Color instance to work from.
-		//
-		// example:
-		//		Work with a Color instance:
-		//	 | var c = new Color([0, 0, 0]);
-		//	 | var hex = c.toHex(); // #000000
 		if (color) {
 			if (typeof color === "string") {
 				Color.fromString(color, this);
@@ -90,6 +93,11 @@ define(["dcl/dcl"], function (dcl) {
 		}
 	};
 
+	/**
+	 * Hash list of all CSS named colors, by name. Values are hex string representing r, g, and b values.
+	 * @memberOf module:dcolor/Color
+	 * @member named
+	 */
 	Color.named = {
 		"black": "#000000",
 		"silver": "#c0c0c0",
@@ -110,17 +118,7 @@ define(["dcl/dcl"], function (dcl) {
 		"transparent": "rgba(0,0,0,0)"
 	};
 
-	/*=====
-	 lang.mixin(Color,{
-		named:{
-			// summary:
-			//		hash list of all CSS named colors, by name. Values are 3-item arrays with corresponding
-			//		RG and B values.
-		}
-	 });
-	 =====*/
-
-	dcl.mix(Color.prototype, {
+	dcl.mix(Color.prototype, /** @lends module:dcolor/Color# */{
 		r: 255,
 		g: 255,
 		b: 255,
@@ -132,67 +130,85 @@ define(["dcl/dcl"], function (dcl) {
 			t.b = b;
 			t.a = isNaN(a) ? 1 : a;
 		},
+		/**
+		 * Ensures the object has correct attributes.
+		 * @returns {dcolor/Color} itself
+		 */
 		sanitize: function () {
-			// summary:
-			//		Ensures the object has correct attributes
 			var t = this;
 			t.r = Math.round(confine(t.r, 0, 255));
 			t.g = Math.round(confine(t.g, 0, 255));
 			t.b = Math.round(confine(t.b, 0, 255));
 			t.a = confine(t.a, 0, 1);
-			return this;	// dcolor/Color
+			return this;
 		},
+		/**
+		 * Returns a 4 components array of rgba values from the color.
+		 * represented by this object.
+		 * @returns {number[]}
+		 */
 		toRgbaArray: function () {
-			// summary:
-			//		Returns a 4 components array of rgba values from the color
-			//		represented by this object.
 			var t = this;
-			return [t.r, t.g, t.b, t.a];	// Array
+			return [t.r, t.g, t.b, t.a];
 		},
+		/**
+		 * Returns a 4 components array of rgba values from the color.
+		 * represented by this object.
+		 * @returns {number[]}
+		 */
 		toHslaArray: function () {
-			// summary:
-			//		Returns a 4 components array of rgba values from the color
-			//		represented by this object.
 			var t = this;
 			return rgba2hsla(t.r, t.g, t.b, t.a);
 		},
+		/**
+		 * Returns a CSS color string in hexadecimal representation.
+		 * @example 
+		 * console.log(new Color([0,0,0]).toHex()); // #000000
+		 * @returns {string}
+		 */
 		toHex: function () {
-			// summary:
-			//		Returns a CSS color string in hexadecimal representation
-			// example:
-			//	|	console.log(new Color([0,0,0]).toHex()); // #000000
 			var arr = ["r", "g", "b"].map(function (x) {
 				var s = this[x].toString(16);
 				return s.length < 2 ? "0" + s : s;
 			}, this);
-			return "#" + arr.join("");	// String
+			return "#" + arr.join("");
 		},
-		toRgbaString: function (/*Boolean?*/ includeAlpha) {
-			// summary:
-			//		Returns a css color string in rgb(a) representation
-			// example:
-			//	|	var c = new Color("#FFF").toCss();
-			//	|	console.log(c); // rgb(255,255,255)
+		/**
+		 * Returns a css color string in rgb(a) representation.
+		 * @param {boolean} [includeAlpha] Whether to include alpha component or not.
+		 * @returns {string}
+		 * @example
+		 * var c = new Color("#FFF").toCss();
+		 * console.log(c); // rgb(255,255,255)
+		 */
+		toRgbaString: function (includeAlpha) {
 			var t = this, rgb = t.r + ", " + t.g + ", " + t.b;
-			return (includeAlpha ? "rgba(" + rgb + ", " + t.a : "rgb(" + rgb) + ")";	// String
+			return (includeAlpha ? "rgba(" + rgb + ", " + t.a : "rgb(" + rgb) + ")";
 		},
+		/**
+		 * Returns a css color string in hsl(a) representation
+		 * @param {boolean} [includeAlpha] Whether to include alpha component or not.
+		 * @returns {string}
+		 */
 		toHslaString: function (/*Boolean?*/ includeAlpha) {
-			// summary:
-			//		Returns a css color string in hsl(a) representation
 			var hsla = this.toHslaArray();
 			var t = this, hsl = hsla[0] + ", " + hsla[1] + ", " + hsla[2];
-			return (includeAlpha ? "hsla(" + hsl + ", " + t.a : "hsl(" + hsla) + ")";	// String
+			return (includeAlpha ? "hsla(" + hsl + ", " + t.a : "hsl(" + hsla) + ")";
 		}
 	});
 
-	Color.fromRgbaString = function (/*String*/ color, /*dcolor/Color?*/ obj) {
-		// summary:
-		//		Returns a `dcolor/Color` instance from a string of the form
-		//		"rgb(...)" or "rgba(...)". Optionally accepts a `dcolor/Color`
-		//		object to update with the parsed value and return instead of
-		//		creating a new object.
-		// returns: dcolor/Color
-		//		If obj is passed, it will be the return value.
+	/**
+	 * Returns a `dcolor/Color` instance from a string of the form
+	 * "rgb(...)" or "rgba(...)". Optionally accepts a `dcolor/Color`
+	 * object to update with the parsed value and return instead of
+	 * creating a new object.
+	 * @function fromRgbaString
+	 * @memberOf module:dcolor/Color
+	 * @param {string} color in the rgb(...) or rgba(...) form.
+	 * @param {dcolor/Color} [obj]
+	 * @returns {dcolor/Color} obj instance if passed
+	 */
+	Color.fromRgbaString = function (color, obj) {
 		var m = color.toLowerCase().match(/^rgba?\(([\s\.,0-9]+)\)/);
 		if (m) {
 			var c = m[1].split(/\s*,\s*/);
@@ -205,22 +221,26 @@ define(["dcl/dcl"], function (dcl) {
 				if (c.length === 4) {
 					a[3] = c[3];
 				}
-				return Color.fromRgbaArray(a, obj); // dcolor/Color
+				return Color.fromRgbaArray(a, obj);
 			}
-			return Color.fromRgbaArray(c, obj); // dcolor/Color
+			return Color.fromRgbaArray(c, obj);
 		} else {
 			return null;
 		}
 	};
 
-	Color.fromHslaString = function (/*String*/ color, /*dcolor/Color?*/ obj) {
-		// summary:
-		//		Returns a `dcolor/Color` instance from a string of the form
-		//		"rgb(...)" or "rgba(...)". Optionally accepts a `dcolor/Color`
-		//		object to update with the parsed value and return instead of
-		//		creating a new object.
-		// returns: dcolor/Color
-		//		If obj is passed, it will be the return value.
+	/**
+	 * Returns a `dcolor/Color` instance from a string of the form
+	 * "rgb(...)" or "rgba(...)". Optionally accepts a `dcolor/Color`
+	 * object to update with the parsed value and return instead of
+	 * creating a new object.
+	 * @function fromHslaString
+	 * @memberOf module:dcolor/Color
+	 * @param {string} color in the hsl(...) or hsla(...) form.
+	 * @param {dcolor/Color} [obj]
+	 * @returns {dcolor/Color} obj instance if passed
+	 */
+	Color.fromHslaString = function (color, obj) {
 		var m = color.toLowerCase().match(/^hsla?\(([\s\.,0-9]+)\)/);
 		if (m) {
 			var c = m[1].split(/\s*,\s*/);
@@ -231,23 +251,25 @@ define(["dcl/dcl"], function (dcl) {
 		}
 	};
 
-	Color.fromHex = function (/*String*/ color, /*dcolor/Color?*/ obj) {
-		// summary:
-		//		Converts a hex string with a '#' prefix to a color object.
-		//		Supports 12-bit #rgb shorthand. Optionally accepts a
-		//		`dcolor/Color` object to update with the parsed value.
-		//
-		// returns: dcolor/Color
-		//		If obj is passed, it will be the return value.
-		//
-		// example:
-		//	 | var thing = Color.ColorFromHex("#ededed"); // grey, longhand
+	/**
+	 * Converts a hex string with a '#' prefix to a color object.
+	 * Supports 12-bit #rgb shorthand. Optionally accepts a
+	 * `dcolor/Color` object to update with the parsed value.
+	 * @function fromHex
+	 * @memberOf module:dcolor/Color
+	 * @param {string} color in the #rrggbb or #rrggbbaa form.
+	 * @param {dcolor/Color} [obj]
+	 * @returns {dcolor/Color} obj instance if passed
+	 * @example
+	 * var thing = Color.ColorFromHex("#ededed"); // grey, longhand
+	 */
+	Color.fromHex = function (color, obj) {
 		var t = obj || new Color(),
 			bits = (color.length === 4) ? 4 : 8,
 			mask = (1 << bits) - 1;
 		color = Number("0x" + color.substr(1));
 		if (isNaN(color)) {
-			return null; // dcolor/Color
+			return null;
 		}
 		["b", "g", "r"].forEach(function (x) {
 			var c = color & mask;
@@ -255,50 +277,63 @@ define(["dcl/dcl"], function (dcl) {
 			t[x] = bits === 4 ? 17 * c : c;
 		});
 		t.a = 1;
-		return t;	// dcolor/Color
+		return t;
 	};
 
-	Color.fromRgbaArray = function (/*Array*/ a, /*dcolor/Color?*/ obj) {
-		// summary:
-		//		Builds a `dcolor/Color` from a 3 or 4 element array, mapping each
-		//		element in sequence to the rgb(a) values of the color.
-		// example:
-		//		| var myColor = Color.fromRgbaArray([237,237,237,0.5]); // grey, 50% alpha
-		// returns:
-		//		A dcolor/Color object. If obj is passed, it will be the return value.
+	/**
+	 * Builds a `dcolor/Color` from a 3 or 4 element array, mapping each
+	 * element in sequence to the rgb(a) values of the color.
+	 * @function fromHex
+	 * @memberOf module:dcolor/Color
+	 * @param {int[]} a in the [r, g, b] or [r, g, b, a] form.
+	 * @param {dcolor/Color} [obj]
+	 * @returns {dcolor/Color} obj instance if passed
+	 * @example
+	 * var myColor = Color.fromRgbaArray([237,237,237,0.5]); // grey, 50% alpha
+	 */
+	Color.fromRgbaArray = function (a, obj) {
 		var t = obj || new Color();
 		t._set(Number(a[0]), Number(a[1]), Number(a[2]), Number(a[3]));
 		if (isNaN(t.a)) {
 			t.a = 1;
 		}
-		return t.sanitize();	// dcolor/Color
+		return t.sanitize();
 	};
 
-	Color.fromHslaArray = function (/*Array*/ a, /*dcolor/Color?*/ obj) {
-		// summary:
-		//		Builds a `dcolor/Color` from a 3 or 4 element array, mapping each
-		//		element in sequence to the rgb(a) values of the color.
-		// example:
-		//		| var myColor = dcolor/ColorfromRgbaArray([237,237,237,0.5]); // grey, 50% alpha
-		// returns:
-		//		A dcolor/Color object. If obj is passed, it will be the return value.
+	/**
+	 * Builds a `dcolor/Color` from a 3 or 4 element array, mapping each
+	 * element in sequence to the rgb(a) values of the color.
+	 * @function fromHex
+	 * @memberOf module:dcolor/Color
+	 * @param {int[]} a in the [h, s, l] or [h, s, l, a] form 
+	 * @param {dcolor/Color} [obj]
+	 * @returns {dcolor/Color} obj instance if passed
+	 */
+	Color.fromHslaArray = function (a, obj) {
 		var t = obj || new Color();
 		var c = hsla2rgba(Number(a[0]), Number(a[1]), Number(a[2]), isNaN(Number(a[3])) ? 1 : Number(a[3]));
 		t._set(c[0], c[1], c[2], c[3]);
-		return t.sanitize();	// dcolor/Color
+		return t.sanitize();
 	};
 
-	Color.fromString = function (/*String*/ str, /*dcolor/Color?*/ obj) {
-		// summary:
-		//		Parses `str` for a color value. Accepts hex, rgb, and rgba
-		//		style color values.
-		// description:
-		//		Acceptable input values for str may include arrays of any form
-		//		accepted by dcolor/ColorfromRgbaArray, hex strings such as "#aaaaaa", or
-		//		rgb or rgba strings such as "rgb(133, 200, 16)" or "rgba(10, 10,
-		//		10, 50)"
-		// returns:
-		//		A dcolor/Color object. If obj is passed, it will be the return value.
+	/**
+	 * @summary
+	 * Parses `str` for a color value. Accepts hex, rgb, and rgba
+	 * style color values.
+	 * @description 
+	 * Acceptable input values for str may include arrays of any form
+	 * accepted by dcolor/ColorfromRgbaArray, hex strings such as "#aaaaaa", or
+	 * rgb or rgba strings such as "rgb(133, 200, 16)" or "rgba(10, 10,
+	 * 10, 50)"
+	 * @function fromHex
+	 * @memberOf module:dcolor/Color
+	 * @param {string} str
+	 * @param {dcolor/Color} [obj]
+	 * @returns {dcolor/Color} obj instance if passed
+	 * @example
+	 * var thing = Color.ColorFromHex("#ededed"); // grey, longhand
+	 */
+	Color.fromString = function (str, obj) {
 		var a = Color.named[str];
 		return a && ((typeof a === "string" && Color.fromHex(a, obj)) ||  Color.fromRgbaArray(a, obj)) ||
 			Color.fromRgbaString(str, obj) || Color.fromHslaString(str, obj) || Color.fromHex(str, obj);
@@ -306,5 +341,3 @@ define(["dcl/dcl"], function (dcl) {
 
 	return Color;
 });
-
-
