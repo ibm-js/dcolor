@@ -65,10 +65,8 @@ define(["dcl/dcl"], function (dcl) {
 	}
 
 	/**
-	 * @summary
 	 * Object that internally holds color components as r, g, b and a and provides method for converting to various
 	 * color component schemes.
-	 * @description
 	 * Constructor takes a named string, hex string, array of rgb or rgba values,
 	 * an object with r, g, b, and a properties, or another `dcolor/Color` object
 	 * and creates a new Color instance to work from.
@@ -317,10 +315,8 @@ define(["dcl/dcl"], function (dcl) {
 	};
 
 	/**
-	 * @summary
 	 * Parses `str` for a color value. Accepts hex, rgb, and rgba
 	 * style color values.
-	 * @description 
 	 * Acceptable input values for str may include arrays of any form
 	 * accepted by dcolor/ColorfromRgbaArray, hex strings such as "#aaaaaa", or
 	 * rgb or rgba strings such as "rgb(133, 200, 16)" or "rgba(10, 10,

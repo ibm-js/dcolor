@@ -1,9 +1,9 @@
 /** @module dcolor/utils */
 define(["./Color"], function (Color) {
-	return {
+	return /** @lends module:dcolor/utils */  {
 		/**
 		 * Some color utilities.
-		 * @class module:dcolor/SimpleColorModel
+		 * @class module:dcolor/utils
 		 */
 
 		/**

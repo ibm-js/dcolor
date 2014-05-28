@@ -2,12 +2,11 @@
 define(["dcl/dcl", "./Color"], function (dcl, Color) {
 
 	/**
-	 * @summary
 	 * Object that internally holds color components as r, g, b and a and provides method for converting to various
 	 * color component schemes.
-	 * @description
 	 * It extends `dcolor/Color` by adding support for more named colors. 
 	 * @param {number[]|string|Object} color color components
+	 * @augments {module:dcolor/Color}
 	 * @constructor module:dcolor/ExtendedColor
 	 */
 

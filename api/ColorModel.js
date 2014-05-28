@@ -1,7 +1,6 @@
 /** @module dcolor/api/ColorModel */
 define(["dcl/dcl"], function (dcl) {
 	/**
-	 * @summary
 	 * API for classes that implement a color model that returns a color from a data value.
 	 * @class module:dcolor/api/ColorModel
 	 */
