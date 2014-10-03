@@ -42,7 +42,8 @@ module.exports = function (grunt) {
 							"api/.",
 							"./README.md",
 							"./package.json"
-						]
+						],
+						packagePathFormat: "${name}/docs/api/${version}"
 					},
 					{
 						args: [
