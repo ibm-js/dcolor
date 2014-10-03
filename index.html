@@ -6,8 +6,8 @@ title: dcolor
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12 col-md-8">
-				<h2>Title</h2>
-				<p>Summary</p>
+				<h2>Color Utilities</h2>
+				<p>Some color models & utilities used in particular by the <a href="../dtreemap/">Treemap Web Component</a></p>
 				<p>
 					<!--<a href="getting-started.html" class="btn btn-primary btn-lg" role="button">Get started</a>-->
 					<a href="docs/master/index.html" class="btn btn-success btn-lg" role="button">Learn more &raquo;</a>
@@ -22,11 +22,59 @@ title: dcolor
 
 <p></p>
 
-<h3>Title</h3>
+
+<h3>Learn how to add dcolor utilities to your Web or Mobile Hybrid Application!</h3>
+
 
 <div class="page-header">
-	<h2>Header</h2>
+	<h2>Install the dcolor module</h2>
 </div>
-<p>
-	Content
-</p>
+<div class="container-fluid">
+	<div class="col-xs-12 col-md-6">
+		Start with installing Node.js, then you are ready to install bower and using bower the dcolor module.
+	</div>
+	<div class="col-xs-12 col-md-6">
+		{% highlight bash %}
+$ npm install -g bower
+$ mkdir -p my-app
+$ cd my-app
+$ bower install dcolor{% endhighlight %}
+	</div>
+</div>
+
+<div class="page-header">
+	<h2>Use it in your application</h2>
+</div>
+<div class="container-fluid">
+	<div class="col-xs-12 col-md-6">
+		Edit the application code to include the dcolor module and use it.
+		tag.
+	</div>
+	<div class="col-xs-12 col-md-6">
+		{% highlight html %}
+<head>
+	<script src="bower_components/requirejs/require.js"></script>
+	<script>
+		require.config({ baseUrl: "bower_components "});
+	</script>
+	<script>
+		require(["dcolor/Color"], function(Color) {
+			var color = new Color("red");
+		});
+	</script>
+</head>
+<body>
+</body>{% endhighlight %}
+</div>
+</div>
+
+<div class="page-header">
+	<h2>Go further</h2>
+</div>
+<div class="container-fluid">
+	<div class="col-xs-12 col-md-6">
+		Don't hesitate to checkout the <a href="docs.html">documentation</a> to go further.
+	</div>
+</div>
+</body
+</html>
