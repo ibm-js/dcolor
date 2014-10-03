@@ -46,5 +46,5 @@ Then install dependencies with bower (or manually from github if you prefer to):
 
 ## Documentation
 
-Documentation is available [here](./docs/index)
+Documentation is available [here](http://ibm-js.github.io/dcolor/docs/master/index.html)
 
